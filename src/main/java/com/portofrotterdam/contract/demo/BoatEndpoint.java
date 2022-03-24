@@ -17,9 +17,12 @@ public class BoatEndpoint {
     }
 
     @GetMapping("/")
-    public List<Boat> getBoats() {
-        return List.of(new Boat(12, "YellowSubmarine", 7),
+    public BoatsResponse getBoats() {
+        List<Boat> boats = List.of(
+                new Boat(12, "YellowSubmarine", 7),
                 new Boat(11, "Boorplatform", 20),
-                new Boat(3, "Baggerboot", 12));
+                new Boat(3, "Baggerboot", 12)
+        );
+        return new BoatsResponse(boats);
     }
 }
